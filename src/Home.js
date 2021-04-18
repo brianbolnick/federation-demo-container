@@ -1,17 +1,15 @@
 import React, { lazy } from 'react';
 
-const Navbar = lazy(() => import('federation_demo_navbar/Navbar'));
+const Button = lazy(() => import('federation_demo_design/Button'));
 
-const Home = () => {
-  return (
-    <div>
-      <React.Suspense fallback="Loading Navbar...">
-        <Navbar />
-      </React.Suspense>
+const AboutPage = () => (
+  <div>
+    <h1>Home Page</h1>
 
-      <h1>Home Page</h1>
-    </div>
-  );
-};
+    <React.Suspense fallback="Loading Button...">
+      <Button>Click me on home!</Button>
+    </React.Suspense>
+  </div>
+);
 
-export default Home;
+export default AboutPage;

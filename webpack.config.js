@@ -35,8 +35,13 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'federation_demo_container',
       library: { type: 'var', name: 'federation_demo_container' },
+      filename: 'remoteEntry.js',
       remotes: {
-        federation_demo_navbar: 'federation_demo_navbar'
+        federation_demo_design: 'federation_demo_design',
+        federation_demo_about: 'federation_demo_about'
+      },
+      exposes: {
+        './Home': './src/Home'
       },
       shared: ['react', 'react-dom']
     }),
