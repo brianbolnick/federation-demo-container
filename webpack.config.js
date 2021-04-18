@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
@@ -22,5 +23,15 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlPlugin]
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'federation_demo_container',
+      library: { type: 'var', name: 'federation_demo_container' },
+      remotes: {
+        federation_demo_navbar: 'federation_demo_navbar'
+      },
+      shared: ['react', 'react-dom']
+    }),
+    htmlPlugin
+  ]
 };
