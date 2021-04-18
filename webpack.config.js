@@ -43,7 +43,7 @@ module.exports = {
       exposes: {
         './Home': './src/Home'
       },
-      shared: ['react', 'react-dom']
+      shared: ['react', 'react-dom', 'styled-components']
     }),
     htmlPlugin
   ]
